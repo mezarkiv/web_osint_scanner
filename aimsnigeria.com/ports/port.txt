@@ -1,0 +1,123 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2023-11-10 09:42 SAST
+Nmap scan report for aimsnigeria.com (173.254.30.125)
+Host is up (0.18s latency).
+rDNS record for 173.254.30.125: just2027.justhost.com
+Not shown: 983 closed tcp ports (reset)
+PORT     STATE    SERVICE     VERSION
+21/tcp   open     ftp         Pure-FTPd
+| ssl-cert: Subject: commonName=*.justhost.com
+| Subject Alternative Name: DNS:*.justhost.com, DNS:justhost.com
+| Not valid before: 2023-01-30T00:00:00
+|_Not valid after:  2024-01-30T23:59:59
+22/tcp   open     ssh         OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 dc:ce:f9:73:43:c9:9b:95:41:6e:9e:69:f1:92:a8:6f (DSA)
+|   2048 34:78:d7:12:e0:3c:88:5c:60:de:f2:bb:22:4c:60:51 (RSA)
+|   256 44:d6:1a:53:76:b4:e8:9b:46:2f:2f:46:d8:67:1f:7c (ECDSA)
+|_  256 b6:3a:d2:ca:22:59:c9:d5:74:ab:9e:54:0e:5d:47:91 (ED25519)
+25/tcp   filtered smtp
+26/tcp   open     smtp        Exim smtpd 4.96.2
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+| smtp-commands: just2027.justhost.com Hello aimsnigeria.com [102.90.44.140], SIZE 52428800, 8BITMIME, PIPELINING, PIPECONNECT, AUTH PLAIN LOGIN, STARTTLS, HELP
+|_ Commands supported: AUTH STARTTLS HELO EHLO MAIL RCPT DATA BDAT NOOP QUIT RSET HELP
+53/tcp   open     domain      ISC BIND 9.11.4-P2 (RedHat Enterprise Linux 7)
+| dns-nsid: 
+|_  bind.version: 9.11.4-P2-RedHat-9.11.4-9.P2.el7
+80/tcp   open     http        Apache httpd
+|_http-title: Did not follow redirect to https://aimsnigeria.com/
+|_http-server-header: Apache
+110/tcp  open     pop3        Dovecot pop3d
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+|_pop3-capabilities: RESP-CODES AUTH-RESP-CODE STLS UIDL TOP PIPELINING CAPA SASL(PLAIN LOGIN) USER
+143/tcp  open     imap        Dovecot imapd
+|_imap-capabilities: ID have capabilities listed OK STARTTLS post-login IDLE IMAP4rev1 NAMESPACE LITERAL+ AUTH=LOGINA0001 more ENABLE LOGIN-REFERRALS AUTH=PLAIN SASL-IR Pre-login
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+443/tcp  open     ssl/http    Apache httpd
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+|_ssl-date: TLS randomness does not represent time
+|_http-title: AIMS NIGERIA - HOME
+|_http-server-header: Apache
+465/tcp  open     ssl/smtp    Exim smtpd 4.96.2
+| smtp-commands: just2027.justhost.com Hello aimsnigeria.com [102.90.44.140], SIZE 52428800, 8BITMIME, PIPELINING, PIPECONNECT, AUTH PLAIN LOGIN, HELP
+|_ Commands supported: AUTH HELO EHLO MAIL RCPT DATA BDAT NOOP QUIT RSET HELP
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+587/tcp  filtered submission
+993/tcp  open     imaps?
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+|_imap-capabilities: ID have capabilities listed OK Pre-login IDLE IMAP4rev1 NAMESPACE LITERAL+ AUTH=LOGINA0001 more ENABLE LOGIN-REFERRALS AUTH=PLAIN SASL-IR post-login
+995/tcp  open     pop3s?
+| ssl-cert: Subject: commonName=cpcontacts.aimsnigeria.com
+| Subject Alternative Name: DNS:aimsnigeria.com, DNS:autodiscover.aimsnigeria.com, DNS:cpanel.aimsnigeria.com, DNS:cpcalendars.aimsnigeria.com, DNS:cpcontacts.aimsnigeria.com, DNS:mail.aimsnigeria.com, DNS:webdisk.aimsnigeria.com, DNS:webmail.aimsnigeria.com, DNS:www.aimsnigeria.com
+| Not valid before: 2023-09-14T01:08:08
+|_Not valid after:  2023-12-13T01:08:07
+|_pop3-capabilities: RESP-CODES AUTH-RESP-CODE SASL(PLAIN LOGIN) PIPELINING UIDL CAPA USER TOP
+2222/tcp open     ssh         OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 dc:ce:f9:73:43:c9:9b:95:41:6e:9e:69:f1:92:a8:6f (DSA)
+|   2048 34:78:d7:12:e0:3c:88:5c:60:de:f2:bb:22:4c:60:51 (RSA)
+|   256 44:d6:1a:53:76:b4:e8:9b:46:2f:2f:46:d8:67:1f:7c (ECDSA)
+|_  256 b6:3a:d2:ca:22:59:c9:d5:74:ab:9e:54:0e:5d:47:91 (ED25519)
+2525/tcp filtered ms-v-worlds
+3306/tcp open     mysql       MySQL 5.7.23-23
+| mysql-info: 
+|   Protocol: 10
+|   Version: 5.7.23-23
+|   Thread ID: 11309743
+|   Capabilities flags: 65535
+|   Some Capabilities: DontAllowDatabaseTableColumn, FoundRows, IgnoreSpaceBeforeParenthesis, Speaks41ProtocolOld, SupportsLoadDataLocal, SupportsTransactions, InteractiveClient, ConnectWithDatabase, ODBCClient, SupportsCompression, SwitchToSSLAfterHandshake, Speaks41ProtocolNew, Support41Auth, IgnoreSigpipes, LongPassword, LongColumnFlag, SupportsMultipleStatments, SupportsMultipleResults, SupportsAuthPlugins
+|   Status: Autocommit
+|   Salt: %\x07y|\x0F-\x01G\x1C\x1B]h%LIyOy'\x04
+|_  Auth Plugin Name: mysql_native_password
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=*.justhost.com
+| Subject Alternative Name: DNS:*.justhost.com, DNS:justhost.com
+| Not valid before: 2023-01-30T00:00:00
+|_Not valid after:  2024-01-30T23:59:59
+5432/tcp open     postgresql  PostgreSQL DB
+| fingerprint-strings: 
+|   SMBProgNeg: 
+|     SFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 1.0 to 3.0
+|     Fpostmaster.c
+|     L1798
+|_    RProcessStartupPacket
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5432-TCP:V=7.94SVN%I=7%D=11/10%Time=654DDF1C%P=x86_64-pc-linux-gnu%
+SF:r(SMBProgNeg,85,"E\0\0\0\x84SFATAL\0C0A000\0Munsupported\x20frontend\x2
+SF:0protocol\x2065363\.19778:\x20server\x20supports\x201\.0\x20to\x203\.0\
+SF:0Fpostmaster\.c\0L1798\0RProcessStartupPacket\0\0");
+OS fingerprint not ideal because: Host distance (16 network hops) is greater than five
+No OS matches for host
+Network Distance: 7 hops
+Service Info: OS: Linux; CPE: cpe:/o:redhat:enterprise_linux:7
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT      ADDRESS
+1   2.94 ms  192.168.0.1
+2   91.91 ms 10.114.4.157
+3   47.36 ms 10.170.131.217
+4   ... 5
+6   51.22 ms 10.202.2.35
+7   50.90 ms just2027.justhost.com (173.254.30.125)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 128.17 seconds
