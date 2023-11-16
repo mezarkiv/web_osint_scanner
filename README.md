@@ -11,13 +11,15 @@ Web OSINT Scanner is an Advance Website Scanning tool for uncovering information
 - 🌐 Explore information from online sources.
 - 🕵️‍♂️ Active Sub Domains Finder
 - 🌐 Website Whois Information
-- 🕵️‍♂️ Website Nmap Ports and Service  Scan
+- 🕵️‍♂️ Website Nmap Ports and Service Scan
+- 🌐 Search and Fetch Email
+- 🌐 Firewall Detector
 
 ## Example Usage
 
 Using Web Osint Scanner to scan reddit.com.
 
-Root privileges needed for nmap tofunction effectively so you must use sudo when performing scan.
+Root privileges needed for nmap to function effectively so you must use sudo when performing scan.
 
 $ sudo ./web_Osint.sh reddit.com
 
@@ -47,3 +49,16 @@ Before you dive into the world of Open Source intelligence, make sure you have t
  - $go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
  - $go get -u github.com/tomnomnom/assetfinder 
  - $apt-get install nmap
+ - $python setup.py install ( After cloning the git repo https://github.com/EnableSecurity/wafw00f.git
+ -     $ ~ > git clone https://github.com/laramies/theHarvester 
+    $ ~ > cd theHarvester
+
+    If developing do:
+        $ ~ > python3 -m pip install -r requirements/dev.txt
+    Else:
+        $ ~ > python3 -m pip install -r requirements/base.txt
+
+    $ ~ > python3 theHarvester.py -h 
+    
+    
+In the Future i'll make installation easy by adding a install.sh script.
