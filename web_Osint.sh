@@ -8,6 +8,7 @@ RESET="\033[0m"
 info_path=$domain/info
 subdomain_path=$domain/subdomains
 open_ports=$domain/ports
+harvested=$domain/email
 
 if [ ! -d "$domain" ];then
     mkdir $domain
@@ -25,6 +26,10 @@ if [ ! -d "$open_ports" ];then
     mkdir $open_ports
 fi
 
+if [ ! -d "$harvested" ];then
+    mkdir $harvested
+fi
+
 echo -e "${GREEN} [-] WELCOME TO WEB OSINT SCANNER ${RED}"
 
 figlet -f slant "WEB SCANNER"
@@ -34,7 +39,15 @@ whois $1 > $info_path/whois.txt
 
 echo -e "${GREEN} [+] Checking for Available Ports on $domain...${RESET}"
 echo -e "${GREEN} [+] Saving Available Ports on $domain...${RESET}"
-nmap -sS -A -sV $domain > $open_ports/port.txt
+nmap -sS -A -sV -O -f $domain > $open_ports/port.txt
+nmap -sL $domain >> $open_ports/port.txt
+
+echo -e "${GREEN} [+] Checking for Firewall on ${domain}...${RESET}"
+wafw00f $1 
+
+echo -e "${GREEN} [+] Harvesting Emails from ${domain}...${RESET}"
+theHarvester -d $domain -b yahoo | sed -n '/@/p'  > $harvested/email.txt
+sed -i '/cmartorella/d' $harvested/email.txt
 
 echo -e "${GREEN} [+] Launching subfinder...${RESET}"
 subfinder -d $domain > $subdomain_path/found.txt
@@ -44,3 +57,7 @@ assetfinder $domain | grep $domain >> $subdomain_path/found.txt
 
 echo -e "${GREEN} [+] Checking what's alive...${RESET}"
 cat $subdomain_path/found.txt | grep $domain | sort -u | httprobe -prefer-https | grep https | sed 's/https\?:\/\///' | tee -a $subdomain_path/alive.txt
+
+
+
+
