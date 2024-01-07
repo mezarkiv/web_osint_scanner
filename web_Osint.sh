@@ -1,15 +1,18 @@
 #!/bin/bash
 
+#Domain and Colors Varible
 domain=$1
-RED="\033[1;31m"
+RED="\033[1;31m" 
 GREEN="\033[0;32m"
 RESET="\033[0m"
 
+#Varible for file Storage
 info_path=$domain/info
 subdomain_path=$domain/subdomains
 open_ports=$domain/ports
 harvested=$domain/email
 
+#conditions That helps Create New Folders if they don't Already Exist
 if [ ! -d "$domain" ];then
     mkdir $domain
 fi
@@ -30,17 +33,20 @@ if [ ! -d "$harvested" ];then
     mkdir $harvested
 fi
 
+#Welcome Message
 echo -e "${GREEN} [-] WELCOME TO WEB OSINT SCANNER ${RED}"
 
+#WEB SCANNER Banner Code
 figlet -f slant "WEB SCANNER"
 
+#Checking for WHOis Info and Storing in whois file
 echo -e "${GREEN} [+] Checking who ${domain} is...${RESET}"
 whois $1 > $info_path/whois.txt
 
-echo -e "${GREEN} [+] Checking for Available Ports on $domain...${RESET}"
+#Using Nmap to Scan Ports, Services, Operation systems and Possible Vulnerabilities.
+echo -e "${GREEN} [+] Checking for Available Vulnerabilities on $domain...${RESET}"
 echo -e "${GREEN} [+] Saving Available Ports on $domain...${RESET}"
-nmap -sS -A -sV -O -f $domain > $open_ports/port.txt
-nmap -sL $domain >> $open_ports/port.txt
+nmap -T4 -sS -p- -A $domain > $open_ports/port.txt
 
 echo -e "${GREEN} [+] Checking for Firewall on ${domain}...${RESET}"
 wafw00f $1 
